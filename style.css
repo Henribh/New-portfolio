@@ -67,23 +67,96 @@ p {
     }
 }
 
+/* Container da Seção Apresentação */
 #aprese {
+    position: relative; /* Define que o vídeo e a overlay se alinhem a esta caixa */
+    width: 100%;
+    min-height: 400px; /* Altura da caixa */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Corta qualquer sobra de vídeo fora da caixa */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(1, 47, 255, 0.4);
+    margin-bottom: 40px;
+}
+
+/* Estilo do Vídeo no Fundo */
+.video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que o vídeo cubra toda a área sem esticar */
+    transform: translate(-50%, -50%); /* Centraliza o vídeo */
+    z-index: 1; /* Fica no fundo */
+}
+
+/* Camada escura por cima do vídeo (melhora a leitura do texto) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Escurece 50% do fundo */
+    z-index: 2; /* Fica acima do vídeo e abaixo do texto */
+}
+
+/* Conteúdo que flutua na frente do vídeo */
+.aprese-conteudo {
+    position: relative;
+    z-index: 3; /* Garante que fique na camada da frente */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 40px;
-    padding: 25px;
-    box-shadow: 0 10px 30px rgb(1, 47, 255);
+    padding: 30px 20px;
+    color: #ffffff; /* Deixa os textos brancos para se destacarem do fundo */
 }
 
+.aprese-conteudo h1 {
+    font-size: 2rem;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
 
-#aprese img {
-    width: 250px;
-    height: 250px;
+.aprese-conteudo h2 {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    margin-top: 5px;
+}
+
+.foto {
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    border: 3px solid #007bff5b;
+    margin-bottom: 15px;
+}
+
+/* Ajuste Responsivo para Celular */
+@media (max-width: 768px) {
+    #aprese {
+        min-height: 350px;
+    }
+
+    .foto {
+        width: 150px;
+        height: 150px;
+    }
+
+    .aprese-conteudo h1 {
+        font-size: 1.5rem;
+    }
+
+    .aprese-conteudo h2 {
+        font-size: 1rem;
+    }
 }
 
 #contatos {
