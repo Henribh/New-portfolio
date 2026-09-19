@@ -100,7 +100,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Escurece 50% do fundo */
+    background: rgba(0, 0, 0, 0.125); /* Escurece 50% do fundo */
     z-index: 2; /* Fica acima do vídeo e abaixo do texto */
 }
 
