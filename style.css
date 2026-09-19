@@ -68,59 +68,107 @@ p {
     line-height: 1.4;
 }
 
+/* 1. Mantemos a mesma animação do neon */
+@keyframes pulsarLuz {
+    0% {
+        box-shadow: 0 4px 15px rgba(1, 47, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 10px 30px rgba(1, 47, 255, 0.9);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(1, 47, 255, 0.2);
+    }
+}
+
+/* 2. Aplica o efeito na caixa do VÍDEO DE FUNDO (#aprese) */
+#aprese {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    
+    /* Adiciona a luz pulsante ao redor do vídeo */
+    animation: pulsarLuz 4s ease-in-out infinite;
+}
+
+/* 3. Aplica o efeito nas caixas de HABILIDADES e FORMAÇÕES */
+.tecnica,
+.formação {
+    flex: 1;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #0b0b0b;
+    text-align: left;
+    
+    animation: pulsarLuz 4s ease-in-out infinite;
+}
+
+footer {
+    text-align: center;
+    padding: 15px 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    background-color: #0b0b0b;
+    color: #ffffff;
+    
+    animation: pulsarLuz 4s ease-in-out infinite;
+}
+
 @media (max-width: 768px) {
     #habil {
         flex-direction: column;
     }
 }
 
-/* Container da Seção Apresentação */
 #aprese {
-    position: relative; /* Define que o vídeo e a overlay se alinhem a esta caixa */
+    position: relative;
     width: 100%;
-    min-height: 400px; /* Altura da caixa */
+    min-height: 400px; 
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Corta qualquer sobra de vídeo fora da caixa */
+    overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(1, 47, 255, 0.4);
     margin-bottom: 40px;
 }
 
-/* Estilo do Vídeo no Fundo */
 .video-bg {
     position: absolute;
     top: 50%;
     left: 50%;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que o vídeo cubra toda a área sem esticar */
-    transform: translate(-50%, -50%); /* Centraliza o vídeo */
-    z-index: 1; /* Fica no fundo */
+    object-fit: cover; 
+    transform: translate(-50%, -50%); 
+    z-index: 1;
 }
 
-/* Camada escura por cima do vídeo (melhora a leitura do texto) */
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.125); /* Escurece 50% do fundo */
-    z-index: 2; /* Fica acima do vídeo e abaixo do texto */
+    background: rgba(0, 0, 0, 0.125);
+    z-index: 2;
 }
 
-/* Conteúdo que flutua na frente do vídeo */
 .aprese-conteudo {
     position: relative;
-    z-index: 3; /* Garante que fique na camada da frente */
+    z-index: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 30px 20px;
-    color: #ffffff; /* Deixa os textos brancos para se destacarem do fundo */
+    color: #ffffff;
 }
 
 .aprese-conteudo h1 {
