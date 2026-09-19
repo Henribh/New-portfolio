@@ -1,12 +1,19 @@
 * {
-    margin: 1px;
+    margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+}
+
+body{
+
+    background-color: rgb(0, 0, 0);
+    color: rgb(132, 176, 203);
 }
 
 .cabeçalho {
     text-align: center;
     font-size: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.548);
 }
 
 p {
@@ -26,7 +33,7 @@ p {
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.548);
-    border: 2px solid #007bff48;
+    border: 2px solid #f8fbfd;
 }
 
 #habil {
