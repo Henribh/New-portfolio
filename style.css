@@ -119,14 +119,14 @@ hr {
     animation: pulsarLuz 4s ease-in-out infinite;
 }
 
-#proj {
-
-    animation: pulsarLuz 4s ease-in-out infinite;
+#proj {   
+     animation: pulsarLuz 4s ease-in-out infinite;
 }
 
 .bola{
-    width: 580px;
-    height: 350px;
+    max-width: 65%;
+    height: auto;
+    display: block;
     border-radius: 7%;
     
 }
