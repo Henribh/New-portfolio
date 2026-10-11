@@ -1,4 +1,4 @@
-// Alternar Tema (Claro / Escuro)
+// Alternar Tema (Claro e Escuro)
 const botao = document.getElementById("theme-toggle");
 const pagina = document.body;
 
@@ -13,20 +13,20 @@ const dadosDigitacao = [
     { id: "type-local", text: "São Paulo, SP" }
 ];
 
-const velocidadeDigitacao = 40; // Velocidade ajustada para ficar mais natural
+const velocidadeDigitacao = 40; 
 
 async function iniciarTypewriter() {
     for (let i = 0; i < dadosDigitacao.length; i++) {
         let elemento = document.getElementById(dadosDigitacao[i].id);
         let texto = dadosDigitacao[i].text;
         
-        elemento.innerHTML = ""; // Limpa antes de começar a digitar
+        elemento.innerHTML = ""; 
         
         for (let j = 0; j < texto.length; j++) {
             elemento.innerHTML += texto.charAt(j);
             await new Promise(resolve => setTimeout(resolve, velocidadeDigitacao));
         }
-        // Uma pequena pausa entre a digitação de uma frase e a próxima
+        
         await new Promise(resolve => setTimeout(resolve, 300));
     }
 }

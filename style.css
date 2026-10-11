@@ -2,15 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent; /* Remove borda azul ao clicar no celular */
+    -webkit-tap-highlight-color: transparent; 
 }
 
-/* Modo Escuro (Padrão) */
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: #ffffff;
     background-color: #121212;
-    overflow-x: hidden; /* Previne rolagem horizontal indesejada */
+    overflow-x: hidden; 
     transition: background-color 0.3s ease, color 0.3s ease;
     width: 100vw;
 }
@@ -33,7 +32,6 @@ main {
     width: 100%;
 }
 
-/* --- EFEITO 3D E LUZ GIRATÓRIA (SIRI EFFECT) --- */
 .card-3d {
     position: relative;
     border-radius: 12px;
@@ -41,18 +39,15 @@ main {
     margin-bottom: 25px;
     z-index: 1;
     overflow: hidden;
-    /* Sombra 3D (Neumorfismo Escuro) */
     box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.8), 
                -6px -6px 12px rgba(255, 255, 255, 0.05);
 }
 
 body.light-mode .card-3d {
-    /* Sombra ajustada para fundo branco puro */
     box-shadow: 6px 6px 15px rgba(163, 177, 198, 0.4), 
                -6px -6px 15px rgba(255, 255, 255, 1);
 }
 
-/* Luz que gira por trás */
 .card-3d::before {
     content: '';
     position: absolute;
@@ -62,7 +57,6 @@ body.light-mode .card-3d {
     z-index: -2;
 }
 
-/* Fundo interno da caixa para esconder o meio da luz */
 .card-3d::after {
     content: '';
     position: absolute;
@@ -73,7 +67,6 @@ body.light-mode .card-3d {
     transition: background-color 0.3s ease;
 }
 
-/* Fundo interno acompanha o branco no modo claro */
 body.light-mode .card-3d::after {
     background-color: #ffffff;
 }
@@ -89,7 +82,6 @@ body.light-mode .card-3d::after {
     100% { transform: translateY(0); }
 }
 
-/* ----------------------------------------------- */
 
 p {
     text-align: justify;
@@ -132,7 +124,6 @@ p {
     color: #00e1ff;
 }
 
-/* --- Apresentação (Vídeo e Foto) --- */
 #aprese {
     display: flex;
     align-items: center;
@@ -143,7 +134,7 @@ p {
 
 #aprese .video-bg {
     position: absolute;
-    inset: 2px; /* Deixa 2px de espaço exato para a luz do contorno brilhar */
+    inset: 2px; 
     width: calc(100% - 4px);
     height: calc(100% - 4px);
     object-fit: cover;
@@ -153,10 +144,10 @@ p {
 
 #aprese .overlay {
     position: absolute;
-    inset: 2px; /* Acompanha o tamanho do vídeo */
+    inset: 2px; 
     width: calc(100% - 4px);
     height: calc(100% - 4px);
-    background: rgba(0, 0, 0, 0.25); /* Reduzido de 0.6 para 0.25: Vídeo bem mais claro */
+    background: rgba(0, 0, 0, 0.25); 
     z-index: 1;
     border-radius: 10px;
 }
@@ -202,7 +193,6 @@ p {
     font-weight: 400;
 }
 
-/* Habilidades */
 #habil {
     display: flex;
     flex-direction: column; 
@@ -286,7 +276,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* --- MEDIA QUERIES PARA DESKTOP --- */
 @media (min-width: 768px) {
     #habil {
         flex-direction: row; 
@@ -314,7 +303,6 @@ footer {
     }
 }
 
-/* --- MEDIA QUERIES PARA CELULARES PEQUENOS --- */
 @media (max-width: 480px) {
     .cabeçalho header a {
         font-size: 13px; 
