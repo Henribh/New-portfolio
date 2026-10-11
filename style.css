@@ -2,91 +2,113 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* Remove borda azul ao clicar no celular */
 }
 
+/* Modo Escuro (Padrão) */
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: #333333;
-    background-color: #8d8d8d;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.dark-mode {
-    background-color: #121212;
     color: #ffffff;
+    background-color: #121212;
+    overflow-x: hidden; /* Previne rolagem horizontal indesejada */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100vw;
 }
 
-body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+/* Modo Claro (Branco) */
+body.light-mode {
+    background-color: #ffffff; /* Modificado para branco puro */
     color: #121212;
-    overflow-x: hidden;
-    background-color: rgb(216, 214, 214)
 }
 
 html {
     scroll-behavior: smooth;
-}
-
-
-@keyframes pulsarLuz {
-    0% {
-        box-shadow: 0 4px 15px rgba(61, 114, 114, 0.2);
-    }
-
-    50% {
-        box-shadow: 0 10px 30px rgba(61, 114, 114, 0.9);
-    }
-
-    100% {
-        box-shadow: 0 4px 15px rgba(61, 114, 114, 0.2);
-    }
-}
-
-@keyframes pulsarIcone {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.18);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+    overflow-x: hidden;
 }
 
 main {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
     width: 100%;
 }
 
-section {
+/* --- EFEITO 3D E LUZ GIRATÓRIA (SIRI EFFECT) --- */
+.card-3d {
+    position: relative;
+    border-radius: 12px;
     padding: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    z-index: 1;
+    overflow: hidden;
+    /* Sombra 3D (Neumorfismo Escuro) */
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.8), 
+               -6px -6px 12px rgba(255, 255, 255, 0.05);
 }
+
+body.light-mode .card-3d {
+    /* Sombra ajustada para fundo branco puro */
+    box-shadow: 6px 6px 15px rgba(163, 177, 198, 0.4), 
+               -6px -6px 15px rgba(255, 255, 255, 1);
+}
+
+/* Luz que gira por trás */
+.card-3d::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: conic-gradient(from 0deg, transparent 60%, #e100ff 75%, #00e1ff 90%, transparent 100%);
+    animation: luzSiri 4s linear infinite;
+    z-index: -2;
+}
+
+/* Fundo interno da caixa para esconder o meio da luz */
+.card-3d::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    z-index: -1;
+    transition: background-color 0.3s ease;
+}
+
+/* Fundo interno acompanha o branco no modo claro */
+body.light-mode .card-3d::after {
+    background-color: #ffffff;
+}
+
+@keyframes luzSiri {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes flutuar {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+/* ----------------------------------------------- */
 
 p {
     text-align: justify;
     line-height: 1.6;
     word-break: break-word;
+    font-size: 0.95rem;
 }
 
-hr {
-    border: none;
-    border-top: 1px solid #e0e0e0;
-    margin: 20px 0;
+.info-box {
+    padding: 20px;
 }
 
+/* Cabeçalho Responsivo */
 .cabeçalho {
     text-align: center;
-    margin: 20px auto;
+    margin: 15px auto;
     max-width: 1000px;
-    width: calc(100% - 40px);
-    border-radius: 8px;
-    animation: pulsarLuz 4s ease-in-out infinite;
+    width: calc(100% - 30px);
+    padding: 5px;
 }
 
 .cabeçalho header {
@@ -94,224 +116,224 @@ hr {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 16px;
-    padding: 15px;
+    gap: 12px;
+    padding: 10px;
 }
 
 .cabeçalho header a {
     text-decoration: none;
     color: inherit;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 15px;
     transition: color 0.3s ease;
 }
 
 .cabeçalho header a:hover {
-    color: #3d7272;
+    color: #00e1ff;
 }
 
+/* --- Apresentação (Vídeo e Foto) --- */
 #aprese {
-    position: relative;
-    width: 100%;
-    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    border-radius: 12px;
-    margin-bottom: 40px;
-    animation: pulsarLuz 4s ease-in-out infinite;
+    min-height: 350px;
+    padding: 0;
 }
 
-#proj {
-
-    text-align: center;
-    border-radius: 8px;
-    animation: pulsarLuz 4s ease-in-out infinite;
-    padding: 25px 15px;
-}
-
-.bola {
-    max-width: 65%;
-    height: auto;
-    display: block;
-    border-radius: 7%;
-
-}
-
-.video-bg {
+#aprese .video-bg {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
+    inset: 2px; /* Deixa 2px de espaço exato para a luz do contorno brilhar */
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
     object-fit: cover;
-    transform: translate(-50%, -50%);
-    z-index: 1;
+    z-index: 0;
+    border-radius: 10px;
 }
 
-.overlay {
+#aprese .overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 2;
+    inset: 2px; /* Acompanha o tamanho do vídeo */
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    background: rgba(0, 0, 0, 0.25); /* Reduzido de 0.6 para 0.25: Vídeo bem mais claro */
+    z-index: 1;
+    border-radius: 10px;
 }
 
 .aprese-conteudo {
     position: relative;
-    z-index: 3;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 30px 20px;
+    padding: 30px 15px;
     color: #ffffff;
     width: 100%;
 }
 
 .foto {
-    width: 180px;
-    height: 180px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    border: 3px solid #3d727249;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    border: 3px solid #00e1ff;
     margin-bottom: 15px;
 }
 
+/* Typewriter Responsivo */
+.typing-text {
+    min-height: 1.2em;
+    display: block;
+}
+
 .aprese-conteudo h1 {
-    font-size: 2rem;
-    color: #ffffff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    font-size: 1.6rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .aprese-conteudo h2 {
-    font-size: 1.1rem;
-    color: #e0e0e0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    font-size: 1rem;
+    color: #f1f1f1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
     margin-top: 5px;
     font-weight: 400;
 }
 
+/* Habilidades */
 #habil {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; 
     gap: 20px;
     margin-bottom: 20px;
 }
 
-.tecnica,
-.formação {
-    flex: 1;
-    padding: 20px;
-    border-radius: 8px;
+.tecnica, .formação {
+    width: 100%;
     text-align: left;
-    animation: pulsarLuz 4s ease-in-out infinite;
 }
 
-.tecnica h5,
-.formação h5 {
+.tecnica h5, .formação h5 {
     font-size: 1.1rem;
     margin-bottom: 12px;
-    border-bottom: 2px solid #e9ecef;
+    border-bottom: 2px solid #555;
     padding-bottom: 6px;
 }
 
-.tecnica ul,
-.formação ul {
+.tecnica ul, .formação ul {
     list-style: none;
+    padding-left: 5px;
 }
 
-.tecnica li,
-.formação li {
-    margin-bottom: 8px;
-    font-size: 0.95rem;
-    line-height: 1.4;
+.tecnica li, .formação li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
+/* Projetos */
+#proj {
+    text-align: center;
+}
+
+.bola {
+    max-width: 90%;
+    height: auto;
+    display: block;
+    border-radius: 7%;
+    margin: 0 auto;
+}
+
+/* Contatos */
 #contatos {
     text-align: center;
-    border-radius: 8px;
-    animation: pulsarLuz 4s ease-in-out infinite;
-    padding: 25px 15px;
+    max-width: 1000px;
+    margin: 0 auto 30px auto;
+    width: calc(100% - 30px);
+}
+
+.icones-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 #contatos a {
     text-decoration: none;
-    color: inherit;
     display: inline-block;
-    margin: 8px 12px;
 }
 
 #contatos .icone {
-    width: 36px;
-    height: 36px;
-    vertical-align: middle;
-    animation: pulsarIcone 4s infinite ease-in-out;
-    transition: transform 0.70s ease;
+    width: 40px;
+    height: 40px;
+    animation: flutuar 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
 }
 
 #contatos a:hover .icone {
+    transform: scale(1.15);
     animation-play-state: paused;
-    transform: scale(1.25);
 }
 
 footer {
     text-align: center;
     padding: 15px 20px;
-    margin: 30px auto;
-    max-width: 1000px;
-    width: calc(100% - 40px);
-    border-radius: 8px;
-    animation: pulsarLuz 4s ease-in-out infinite;
+    margin: 20px auto 30px auto;
+    width: calc(100% - 30px);
+    font-size: 0.9rem;
 }
 
-@media (max-width: 768px) {
-    main {
-        padding: 0 15px;
+/* --- MEDIA QUERIES PARA DESKTOP --- */
+@media (min-width: 768px) {
+    #habil {
+        flex-direction: row; 
     }
-
-    .cabeçalho header {
-        gap: 10px;
-        padding: 10px;
-    }
-
-    .cabeçalho header a {
-        font-size: 14px;
-    }
-
-    #aprese {
-        min-height: auto;
-        padding: 20px 10px;
-    }
-
-    .foto {
-        width: 130px;
-        height: 130px;
-    }
-
+    
     .aprese-conteudo h1 {
-        font-size: 1.4rem;
+        font-size: 2.2rem;
     }
 
     .aprese-conteudo h2 {
-        font-size: 0.95rem;
+        font-size: 1.1rem;
+    }
+    
+    .foto {
+        width: 180px;
+        height: 180px;
     }
 
-    #habil {
-        flex-direction: column;
-        gap: 15px;
+    p {
+        font-size: 1rem;
     }
 
-    #contatos .icone {
-        width: 32px;
-        height: 32px;
+    .bola {
+        max-width: 65%;
+    }
+}
+
+/* --- MEDIA QUERIES PARA CELULARES PEQUENOS --- */
+@media (max-width: 480px) {
+    .cabeçalho header a {
+        font-size: 13px; 
+    }
+    
+    .cabeçalho header {
+        gap: 8px;
     }
 
-    #contatos a {
-        margin: 6px 8px;
+    .aprese-conteudo h1 {
+        font-size: 1.3rem;
+    }
+
+    .aprese-conteudo h2 {
+        font-size: 0.85rem;
+    }
+    
+    .foto {
+        width: 120px;
+        height: 120px;
     }
 }
