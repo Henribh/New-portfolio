@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bruno Oliveira</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="dark-mode">
-    <div class="cabeçalho card-3d">
-        <header>
-            <a href="#aprese">Inicio</a>
+    <canvas id="bg-canvas"></canvas>
+
+    <header class="cabeçalho card-3d">
+        <nav>
+            <a href="#aprese">Início</a>
             <a href="#habil">Habilidades</a>
             <a href="#Expe">Experiência</a>
             <a href="#proj">Projetos</a>
             <a href="#contatos">Contatos</a>
-            <img id="theme-toggle" src="assets/dark_mode_30dp.svg" alt="Alternar Tema"
-                style="cursor: pointer; width: 24px;">
-        </header>
-    </div>
+            <img id="theme-toggle" src="assets/dark_mode_30dp.svg" alt="Alternar Tema" style="cursor: pointer; width: 24px;">
+        </nav>
+    </header>
 
     <main>
-        <section id="aprese" class="card-3d">
-            <!-- As tags playsinline e webkit-playsinline são cruciais para o iPhone -->
+        <section id="aprese" class="card-3d destaque-animado">
             <video autoplay muted loop playsinline webkit-playsinline preload="auto" class="video-bg">
                 <source src="assets/14811525 3840 2160 30Fps.mp4" type="video/mp4">
             </video>
             <div class="overlay"></div>
 
             <div class="aprese-conteudo">
-                <img src="assets/IMG_20260418_132738803_HDR.jpg" alt="minha foto" class="foto">
+                <img src="assets/IMG_20260418_132738803_HDR.jpg" alt="Foto de Bruno Oliveira" class="foto">
                 <div class="aprese-texto">
                     <h1 id="type-nome" class="typing-text"></h1>
                     <h2 id="type-cargo" class="typing-text"></h2>
@@ -39,36 +37,26 @@
             </div>
         </section>
 
-        <div class="card-3d info-box">
+        <section class="card-3d info-box">
             <h3>RESUMO PROFISSIONAL</h3>
             <br>
             <p>
-                Cursando Análise e Desenvolvimento de Sistemas (Estácio) e Técnico em Informática para Internet (Senac
-                SP).
-                Tenho 2 anos de experiência prática em Suporte Técnico Remoto na operação Fiserv (via Atento), atuando
-                com
-                atendimento via chat e telefone, diagnóstico de incidentes de hardware e software, conectividade de
-                redes,
-                acesso remoto e parametrização de terminais de pagamento (POS).<br><br>
-                Possuo vivência no suporte e utilização de sistemas ERP e CRM, além de prática em manipulação e
-                tratamento
-                de dados corporativos. Conto com conhecimentos fundamentais de <strong>Banco de Dados (SQL), lógica de
-                    programação e desenvolvimento web (HTML5, CSS3, JavaScript).</strong> Destaco-me pela capacidade
-                analítica, comunicação clara, foco no usuário e agilidade na resolução de problemas técnicos.<br><br>
-                <strong>Objetivo:</strong> Busco oportunidades de Estágio em TI / Desenvolvimento ou atuações em Help
-                Desk,
-                Service Desk e Suporte Técnico.
+                Cursando Análise e Desenvolvimento de Sistemas (Estácio) e Técnico em Informática para Internet (Senac SP).
+                Tenho 2 anos de experiência prática em Suporte Técnico Remoto na operação Fiserv (via Atento), atuando com atendimento via chat e telefone, diagnóstico de incidentes de hardware e software, conectividade de redes, acesso remoto e parametrização de terminais de pagamento (POS).<br><br>
+                Possuo vivência no suporte e utilização de sistemas ERP e CRM, além de prática em manipulação e tratamento de dados corporativos e biológicos. Conto com conhecimentos fundamentais de <strong>Banco de Dados (SQL), lógica de programação e desenvolvimento web (HTML5, CSS3, JavaScript).</strong> Destaco-me pela capacidade analítica, comunicação clara, foco no usuário e agilidade na resolução de problemas técnicos.<br><br>
+                <strong>Objetivo:</strong> Busco oportunidades de Estágio em TI / Desenvolvimento ou atuações em Help Desk, Service Desk, Análise de Dados e Suporte Técnico.
             </p>
-        </div>
+        </section>
 
         <section id="habil">
             <div class="tecnica card-3d">
                 <h5>HABILIDADES TÉCNICAS</h5>
                 <ul>
-                    <li>Sistemas & Suporte: ERP, CRM, Help Desk N1/N2, Suporte Remoto, Hardware, POS.</li>
-                    <li>Desenvolvimento Web: HTML5, CSS3, JavaScript, DOM, Git/GitHub.</li>
-                    <li>Banco de Dados: SQL / PostgreSQL (Básico)</li>
-                    <li>Pacote Office/Power BI</li>
+                    <li>Sistemas & Suporte: ERP, CRM, Zendesk, Help Desk N1/N2, Suporte Remoto, Hardware, POS.</li>
+                    <li>Desenvolvimento Web: HTML5, CSS3, JavaScript, DOM, Git/GitHub, Figma.</li>
+                    <li>Banco de Dados & Análise: SQL / PostgreSQL (Básico), Power BI.</li>
+                    <li>Pacote Office / Microsoft 365.</li>
+                    <li>Inglês</li>
                 </ul>
             </div>
 
@@ -78,6 +66,7 @@
                     <li>Análise e Desenvolvimento de Sistemas | Estácio (1º Semestre - EAD)</li>
                     <li>Técnico em Informática para Internet | Senac SP (1º Semestre - Presencial)</li>
                     <li>Hardware e Manutenção de Computadores | SENAI / CESPAT (Concluído)</li>
+                    <li>Biomedicina | Estácio de Sá (Concluído)</li>
                 </ul>
             </div>
         </section>
@@ -87,54 +76,46 @@
             <br>
             <p>
                 <strong>Técnico Remoto (Operação Fiserv)</strong> | Atento Brasil, São Paulo, SP<br>
-                2 anos de atuação em atendimento e suporte técnico remoto para resolução de
-                chamados de hardware, software e conectividade; acesso remoto e configuração de
-                terminais de pagamento (POS).<br><br>
+                2 anos de atuação em atendimento e suporte técnico remoto para resolução de chamados de hardware, software e conectividade; acesso remoto e configuração de terminais de pagamento (POS).<br><br>
+
+                <strong>Auxiliar de Laboratório</strong> | AFIP (Unidade Ricardo Jafet), São Paulo, SP<br>
+                Atuação com foco em precisão analítica, controle de qualidade, processamento e triagem de amostras, garantindo a integridade dos dados e o cumprimento de protocolos rigorosos.<br><br>
 
                 <strong>Estagiário de Biomedicina</strong> | FEMME (Medicina da Mulher), São Paulo, SP<br>
-                Triagem de amostras biológicas, auditoria e correção de guias e pré-faturamento de múltiplos convênios.
-                Foco em precisão analítica e manipulação de dados em sistemas internos.<br><br>
+                Triagem de amostras biológicas, auditoria e correção de guias e pré-faturamento de múltiplos convênios. Foco em precisão analítica e manipulação de dados em sistemas internos.<br><br>
 
                 <strong>Auxiliar de Farmácia</strong> | Drogaria São Paulo, São Paulo, SP<br>
-                Atendimento ao cliente, resolução de dúvidas, suporte no uso de sistemas internos e gerenciamento de
-                estoque.
+                Atendimento ao cliente, resolução de dúvidas, suporte no uso de sistemas internos e gerenciamento de estoque.
             </p>
         </section>
 
-        <section id="proj" class="card-3d">
-            <h3>Projeto integrador Senac</h3>
-            <br>
-            <p><strong>Oliva Finance</strong> Dashboard Financeiro & Simulador de Orçamento
+        <section id="proj">
+            <div class="card-3d">
+                <h3>Projeto integrador Senac</h3>
                 <br>
+                <p><strong>Oliva Finance</strong> Dashboard Financeiro & Simulador de Orçamento - Projeto Senac<br><br>
+                Aplicação web responsiva desenvolvida do zero para controle e planejamento financeiro pessoal. Permite gerenciar receitas e despesas variáveis, calcular a capacidade de economia em tempo real e simular o impacto de compras parceladas (1x a 21x) na renda mensal com alertas visuais de risco.
+                Tecnologias: HTML5 Semântico, CSS3 (Grid/Flexbox, Variáveis, Tema Claro/Escuro) e JavaScript Puro (Vanilla JS).
+                Recursos: Persistência de dados local via localStorage, interface mobile-first em tons Verde Oliva e cálculo dinâmico de orçamento.</p>
                 <br>
-                Aplicação web responsiva desenvolvida do zero para controle e planejamento financeiro pessoal. Permite
-                gerenciar receitas e despesas variáveis, calcular a capacidade de economia em tempo real e simular o
-                impacto de compras parceladas (1x a 12x) na renda mensal com alertas visuais de risco.
+                <img src="assets/Captura de tela 2026-10-24 202351.png" class="bola" alt="Captura de tela do Dashboard Oliva Finance">
+                <br><br>
+                <a href="https://henribh.github.io/oliva-finance/" target="_blank">Link do projeto</a>
+            </div>
 
-                Tecnologias: HTML5 Semântico, CSS3 (Grid/Flexbox, Variáveis, Tema Claro/Escuro) e JavaScript Puro
-                (Vanilla JS).
-
-                Recursos: Persistência de dados local via localStorage, interface mobile-first em tons Verde Oliva e
-                cálculo dinâmico de orçamento.</p>
-            <br>
-            <img src="assets/olivafinance.png" class="bola" alt="link do projeto">
-            <br><br>
-            <a href="https://henribh.github.io/oliva-finance/" target="_blank">Link do projeto</a>
-        </section>
-
-        <section id="proj" class="card-3d">
-            <h3>Meus projetos</h3>
-            <br>
-            <p>Aqui está o meu primeiro projeto utilizando HTML, CSS e JavaScript. Criei um site inspirado na bola 8
-                mágica, no qual você realiza uma pergunta e a "bruxa" dá uma resposta.</p>
-            <br>
-            <img src="assets/Bolamagica.png" class="bola" alt="link do projeto">
-            <br><br>
-            <a href="https://henribh.github.io/Bola-magica/" target="_blank">Link do projeto</a>
+            <div class="card-3d">
+                <h3>Meus projetos</h3>
+                <br>
+                <p>Aqui está o meu primeiro projeto utilizando HTML, CSS e JavaScript. Criei um site inspirado na bola 8 mágica, no qual você realiza uma pergunta e a "bruxa" dá uma resposta.</p>
+                <br>
+                <img src="assets/Bolamagica.png" class="bola" alt="Captura de tela do projeto Bola Mágica">
+                <br><br>
+                <a href="https://henribh.github.io/Bola-magica/" target="_blank">Link do projeto</a>
+            </div>
         </section>
     </main>
 
-    <section id="contatos" class="card-3d">
+    <section id="contatos" class="card-3d destaque-animado">
         <h3>Meus Contatos</h3>
         <br>
         <div class="icones-container">
@@ -157,5 +138,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
